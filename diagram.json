@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "author": "Kaesha Talreja",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -32, "left": 18, "attrs": {} },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -72.2,
+      "left": -171.83,
+      "attrs": { "distance": "212" }
+    },
+    {
+      "type": "wokwi-led-bar-graph",
+      "id": "bargraph1",
+      "top": -5.29,
+      "left": 215.82,
+      "attrs": { "color": "lime" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -23.74,
+      "left": 269.54,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -13.76,
+      "left": -214.4,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "ultrasonic1:TRIG", "esp:D12", "gold", [ "v0" ] ],
+    [ "ultrasonic1:ECHO", "esp:D14", "blue", [ "v0" ] ],
+    [ "ultrasonic1:VCC", "esp:3V3", "red", [ "v237.23", "h243.55", "v-74" ] ],
+    [ "ultrasonic1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "esp:D15", "bargraph1:A10", "green", [ "h71.37", "v-6.48" ] ],
+    [ "esp:D2", "bargraph1:A9", "green", [ "h64.13", "v-13.84" ] ],
+    [ "esp:D4", "bargraph1:A8", "green", [ "h58.86", "v-6.08" ] ],
+    [ "esp:D5", "bargraph1:A7", "green", [ "h0" ] ],
+    [ "esp:D18", "bargraph1:A6", "green", [ "h0" ] ],
+    [ "esp:D19", "bargraph1:A5", "green", [ "h0" ] ],
+    [ "esp:D21", "bargraph1:A4", "green", [ "h0" ] ],
+    [ "esp:D22", "bargraph1:A3", "green", [ "h83.89", "v14.72" ] ],
+    [ "esp:D23", "bargraph1:A2", "green", [ "h89.82", "v12.86" ] ],
+    [ "bargraph1:A1", "esp:D13", "green", [ "h-8.21", "v-39.44", "h-211.42", "v145.56" ] ],
+    [ "bargraph1:C1", "r1:1", "#8f4814", [ "v0" ] ],
+    [ "bargraph1:C1", "bargraph1:C2", "#8f4814", [ "v0" ] ],
+    [ "bargraph1:C3", "bargraph1:C4", "#8f4814", [ "h0" ] ],
+    [ "bargraph1:C5", "bargraph1:C6", "#8f4814", [ "h0" ] ],
+    [ "bargraph1:C7", "bargraph1:C8", "#8f4814", [ "h0" ] ],
+    [ "bargraph1:C9", "bargraph1:C10", "#8f4814", [ "h0" ] ],
+    [ "bargraph1:C2", "bargraph1:C3", "#8f4814", [ "h16.93", "v2.44" ] ],
+    [ "bargraph1:C5", "bargraph1:C4", "#8f4814", [ "h15.83", "v-7.17" ] ],
+    [ "bargraph1:C8", "bargraph1:C9", "#8f4814", [ "h14.19", "v6.79" ] ],
+    [ "bargraph1:C6", "bargraph1:C7", "#8f4814", [ "h15.83", "v5.16" ] ],
+    [ "esp:GND.1", "r1:2", "#8f4814", [ "h224.83", "v-17.93" ] ],
+    [ "bz1:1", "esp:GND.2", "black", [ "v0" ] ],
+    [ "bz1:2", "esp:D27", "red", [ "v0" ] ]
+  ]
+}
